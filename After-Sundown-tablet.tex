@@ -1,0 +1,188 @@
+\documentclass[12pt,oneside,onecolumn,openany,final]{memoir}
+
+\setlength{\paperheight}{10in}
+\setlength{\paperwidth}{8in}
+\setstocksize{\paperheight}{\paperwidth}
+
+\setlrmarginsandblock{.75in}{.75in}{*}
+\setulmarginsandblock{.5in}{.5in}{*}
+\checkandfixthelayout
+
+\usepackage[toc,lot,lof]{multitoc}
+\usepackage{tocloft}
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+\usepackage{longtable}
+\usepackage{mdwlist}
+\usepackage{microtype} \DisableLigatures{encoding = *, family = *}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[normalem]{ulem}
+\usepackage{wrapfig}
+\usepackage{xtab}
+\usepackage{enumerate}
+\usepackage{phonetic}
+\usepackage{bbding}
+\usepackage{linearb}
+\usepackage{cypriot}
+\usepackage{tipa}
+\usepackage{xfrac}
+\usepackage{appendix}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wasysym}
+\usepackage{makeidx} \makeindex
+\usepackage[usenames,dvipsnames,table]{xcolor}
+\definecolor{tan}{RGB}{255,255,128}
+\definecolor{links}{RGB}{200,0,50}
+\definecolor{dicePoolColor}{RGB}{0,160,50}
+\pagecolor{white}
+\usepackage[final]{pdfpages}
+
+%% Font
+\usepackage[T1]{fontenc}
+\usepackage[bitstream-charter]{mathdesign}
+%\usepackage{aurical}
+
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=links,pdfstartview={XYZ null null 1.00}]{hyperref}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% End of Import Section %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Revised Commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+
+\renewcommand{\@makechapterhead}[1]{%
+\vspace*{0 pt}{
+\raggedright \normalfont \fontsize{32}{32} \selectfont \bfseries
+\ifnum \value{secnumdepth}>-1
+  \if@mainmatter \vspace{-8pt} {\fontsize{20}{20} \selectfont Chapter \thechapter:}\\[8pt]
+  \fi%
+\fi
+\hspace{0.65cm} #1\par\nobreak\vspace{20 pt}
+}}
+
+\renewcommand{\paragraph}{%
+\@startsection{paragraph}{4}%
+{\z@}{1.0ex \@plus 1ex \@minus 0.2ex}{-1em} % wtf is an 'ex' anyways?
+{\normalfont\normalsize\bfseries}%
+}
+
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% New Commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\tagline}[1]{\vspace{-6pt} \textit{#1} \medskip}
+\newcommand{\refwork}[1]{\uline{#1}}
+\newcommand{\linkpower}[1]{\hyperref[power:#1]{#1}}
+\newcommand{\powerentry}[1]{\paragraph{\textbullet{} #1:}\label{power:#1}\index{#1}}
+\newcommand{\skillentry}[1]{\subsection{#1}\label{skill:#1}\index{#1}}
+\newcommand{\dicepool}[1]{\textcolor{dicePoolColor}{#1}}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Title Page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{empty}
+\pagecolor{black}
+\begin{center}
+{\textsc{\Large}\\[0.95cm]
+\color{red}
+\fontsize{50}{30} \selectfont \textit{After Sundown}\\[.65cm]
+\vfill
+\includegraphics[width=\linewidth]{gagilas_city-blue.jpg}
+\fontsize{12}{14} \selectfont
+\textit{by Frank Trollman and \href{http://www.tgdmb.com/viewforum.php?f=1}{The Gaming Den}}\\
+\today}
+\end{center}
+
+%\setcounter{page}{2} %for the version sent to lulu, disable the cover and enable this line
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Table of Contents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\pagecolor{white}
+\pagestyle{plain}
+\sffamily
+\raggedbottom
+\setcounter{secnumdepth}{1}
+\setcounter{tocdepth}{2}
+\renewcommand{\contentsname}{Table of Contents}
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Main Content
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage{}
+\input{01-introduction}
+\clearpage{}
+\input{02-terrible-places}
+\clearpage{}
+\input{03-running-the-game}
+\clearpage{}
+\input{04-monstrous-society}
+\clearpage{}
+\input{05-skills}
+\clearpage{}
+\input{06-getting-what-you-need}
+\clearpage{}
+\input{07-danger}
+\clearpage{}
+\input{08-monsters}
+\clearpage{}
+\input{09-magic}
+\clearpage{}
+\input{10-character-options-and-motivations}
+\clearpage{}
+\input{11-the-world-at-night}
+\clearpage{}
+\input{12-persona-non-grata}
+\clearpage{}
+\input{13-points-of-view}
+\clearpage{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\phantomsection
+\addcontentsline{toc}{chapter}{Images}
+\chapter*{Images}
+
+\hspace{\parindent} While the text, tables, and character sheet are within the Public Domain (meaning that you're free to use them however you like), the images are used under a \textit{\href{http://creativecommons.org/licenses/by-sa/2.0/}{Creative Commons-Attribution-Share Alike}} license, and come from the following \href{http://www.flickr.com/}{Flickr} sources:
+
+\begin{description*}
+\item[Cover Image] \href{http://www.flickr.com/photos/gagilas/3564331018}{gagilas - city blue}
+\end{description*}
+
+\clearpage
+\phantomsection
+\listoftables
+
+\clearpage
+\phantomsection
+\printindex
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Character Sheet}
+\includepdf[pages={1,2}]{images/Character-Sheet.pdf}
+
+\end{document}
